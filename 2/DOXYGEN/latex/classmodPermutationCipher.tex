@@ -1,0 +1,212 @@
+\hypertarget{classmodPermutationCipher}{}\doxysection{Класс mod\+Permutation\+Cipher}
+\label{classmodPermutationCipher}\index{modPermutationCipher@{modPermutationCipher}}
+
+
+Класс для реализации шифра перестановки с ключом.  
+
+
+
+
+{\ttfamily \#include $<$mod\+Permutation.\+h$>$}
+
+\doxysubsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classmodPermutationCipher_af2e25321350a2604cf55a0a88d3881f2}{mod\+Permutation\+Cipher}} (const std\+::wstring \&skey)
+\begin{DoxyCompactList}\small\item\em Конструктор класса. \end{DoxyCompactList}\item 
+std\+::wstring \mbox{\hyperlink{classmodPermutationCipher_a92bbccfb8eec801c6354ea9bc1a54b53}{encrypt}} (const std\+::wstring \&open\+\_\+text)
+\begin{DoxyCompactList}\small\item\em Метод для шифрования текста. \end{DoxyCompactList}\item 
+std\+::wstring \mbox{\hyperlink{classmodPermutationCipher_aa9d839d7dd471af83a9b0955f9264c52}{decrypt}} (const std\+::wstring \&cipher\+\_\+text)
+\begin{DoxyCompactList}\small\item\em Метод для расшифрования текста. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classmodPermutationCipher_aaa2c1dfdc9996bd97b770638b108baa0}{validate\+Key}} (const std\+::wstring \&\mbox{\hyperlink{classmodPermutationCipher_a07fdc62dfae8c5d079876153783ab858}{key}})
+\begin{DoxyCompactList}\small\item\em Проверяет корректность ключа. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classmodPermutationCipher_a0909da5a194e5b7746bb286e52cc7d65}{validate\+Text}} (const std\+::wstring \&text)
+\begin{DoxyCompactList}\small\item\em Проверяет корректность текста. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Закрытые данные}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classmodPermutationCipher_a78ca8e4dfed12bc7b4e85bd3bda15b74}\label{classmodPermutationCipher_a78ca8e4dfed12bc7b4e85bd3bda15b74}} 
+std\+::wstring {\bfseries alphabet}
+\begin{DoxyCompactList}\small\item\em Алфавит, используемый для шифрования (русские и английские буквы). \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classmodPermutationCipher_a07fdc62dfae8c5d079876153783ab858}\label{classmodPermutationCipher_a07fdc62dfae8c5d079876153783ab858}} 
+std\+::vector$<$ int $>$ {\bfseries key}
+\begin{DoxyCompactList}\small\item\em Ключ шифрования в виде вектора целых чисел. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Подробное описание}
+Класс для реализации шифра перестановки с ключом. 
+
+Этот класс предоставляет функциональность для шифрования и расшифрования текста на основе алгоритма перестановки с использованием числового ключа. 
+
+\doxysubsection{Конструктор(ы)}
+\mbox{\Hypertarget{classmodPermutationCipher_af2e25321350a2604cf55a0a88d3881f2}\label{classmodPermutationCipher_af2e25321350a2604cf55a0a88d3881f2}} 
+\index{modPermutationCipher@{modPermutationCipher}!modPermutationCipher@{modPermutationCipher}}
+\index{modPermutationCipher@{modPermutationCipher}!modPermutationCipher@{modPermutationCipher}}
+\doxysubsubsection{\texorpdfstring{modPermutationCipher()}{modPermutationCipher()}}
+{\footnotesize\ttfamily mod\+Permutation\+Cipher\+::mod\+Permutation\+Cipher (\begin{DoxyParamCaption}\item[{const std\+::wstring \&}]{skey }\end{DoxyParamCaption})}
+
+
+
+Конструктор класса. 
+
+Конструктор класса \mbox{\hyperlink{classmodPermutationCipher}{mod\+Permutation\+Cipher}}.
+
+Инициализирует объект с заданным ключом. 
+\begin{DoxyParams}{Аргументы}
+{\em skey} & Ключ для шифрования в формате строки. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Исключения}
+{\em std\+::invalid\+\_\+argument} & Если ключ некорректен.\\
+\hline
+\end{DoxyExceptions}
+Конструктор инициализирует объект с переданным ключом. Также выполняется проверка ключа на корректность\+: он должен быть непустым и содержать только цифры.
+
+
+\begin{DoxyParams}{Аргументы}
+{\em skey} & Ключ в виде строки, состоящей из цифр. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Исключения}
+{\em std\+::invalid\+\_\+argument} & Исключение выбрасывается, если ключ пуст или содержит недопустимые символы. \\
+\hline
+\end{DoxyExceptions}
+
+
+\doxysubsection{Методы}
+\mbox{\Hypertarget{classmodPermutationCipher_aa9d839d7dd471af83a9b0955f9264c52}\label{classmodPermutationCipher_aa9d839d7dd471af83a9b0955f9264c52}} 
+\index{modPermutationCipher@{modPermutationCipher}!decrypt@{decrypt}}
+\index{decrypt@{decrypt}!modPermutationCipher@{modPermutationCipher}}
+\doxysubsubsection{\texorpdfstring{decrypt()}{decrypt()}}
+{\footnotesize\ttfamily std\+::wstring mod\+Permutation\+Cipher\+::decrypt (\begin{DoxyParamCaption}\item[{const std\+::wstring \&}]{cipher\+\_\+text }\end{DoxyParamCaption})}
+
+
+
+Метод для расшифрования текста. 
+
+Функция для расшифрования текста.
+
+
+\begin{DoxyParams}{Аргументы}
+{\em cipher\+\_\+text} & Шифрованный текст для расшифрования. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+std\+::wstring Расшифрованный текст.
+\end{DoxyReturn}
+Расшифровывает переданный текст, используя алгоритм перестановки с ключом.
+
+
+\begin{DoxyParams}{Аргументы}
+{\em cipher\+\_\+text} & Текст для расшифрования. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+std\+::wstring Расшифрованный текст. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classmodPermutationCipher_a92bbccfb8eec801c6354ea9bc1a54b53}\label{classmodPermutationCipher_a92bbccfb8eec801c6354ea9bc1a54b53}} 
+\index{modPermutationCipher@{modPermutationCipher}!encrypt@{encrypt}}
+\index{encrypt@{encrypt}!modPermutationCipher@{modPermutationCipher}}
+\doxysubsubsection{\texorpdfstring{encrypt()}{encrypt()}}
+{\footnotesize\ttfamily std\+::wstring mod\+Permutation\+Cipher\+::encrypt (\begin{DoxyParamCaption}\item[{const std\+::wstring \&}]{open\+\_\+text }\end{DoxyParamCaption})}
+
+
+
+Метод для шифрования текста. 
+
+Функция для шифрования текста.
+
+
+\begin{DoxyParams}{Аргументы}
+{\em open\+\_\+text} & Открытый текст для шифрования. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+std\+::wstring Зашифрованный текст.
+\end{DoxyReturn}
+Шифрует переданный текст, используя алгоритм перестановки с ключом.
+
+
+\begin{DoxyParams}{Аргументы}
+{\em open\+\_\+text} & Текст для шифрования. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+std\+::wstring Зашифрованный текст. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classmodPermutationCipher_aaa2c1dfdc9996bd97b770638b108baa0}\label{classmodPermutationCipher_aaa2c1dfdc9996bd97b770638b108baa0}} 
+\index{modPermutationCipher@{modPermutationCipher}!validateKey@{validateKey}}
+\index{validateKey@{validateKey}!modPermutationCipher@{modPermutationCipher}}
+\doxysubsubsection{\texorpdfstring{validateKey()}{validateKey()}}
+{\footnotesize\ttfamily void mod\+Permutation\+Cipher\+::validate\+Key (\begin{DoxyParamCaption}\item[{const std\+::wstring \&}]{skey }\end{DoxyParamCaption})}
+
+
+
+Проверяет корректность ключа. 
+
+Функция для валидации ключа.
+
+
+\begin{DoxyParams}{Аргументы}
+{\em key} & Ключ для проверки. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Исключения}
+{\em std\+::invalid\+\_\+argument} & Если ключ некорректен.\\
+\hline
+\end{DoxyExceptions}
+Проверяет, что ключ состоит только из цифр и является положительным целым числом.
+
+
+\begin{DoxyParams}{Аргументы}
+{\em skey} & Ключ в виде строки. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Исключения}
+{\em std\+::invalid\+\_\+argument} & Исключение выбрасывается, если ключ содержит нецифровые символы или является неположительным. \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{classmodPermutationCipher_a0909da5a194e5b7746bb286e52cc7d65}\label{classmodPermutationCipher_a0909da5a194e5b7746bb286e52cc7d65}} 
+\index{modPermutationCipher@{modPermutationCipher}!validateText@{validateText}}
+\index{validateText@{validateText}!modPermutationCipher@{modPermutationCipher}}
+\doxysubsubsection{\texorpdfstring{validateText()}{validateText()}}
+{\footnotesize\ttfamily void mod\+Permutation\+Cipher\+::validate\+Text (\begin{DoxyParamCaption}\item[{const std\+::wstring \&}]{text }\end{DoxyParamCaption})}
+
+
+
+Проверяет корректность текста. 
+
+Функция для валидации текста.
+
+
+\begin{DoxyParams}{Аргументы}
+{\em text} & Текст для проверки. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Исключения}
+{\em std\+::invalid\+\_\+argument} & Если текст некорректен.\\
+\hline
+\end{DoxyExceptions}
+Проверяет, что текст не пуст и состоит только из символов заданного алфавита (русские и английские буквы).
+
+
+\begin{DoxyParams}{Аргументы}
+{\em text} & Текст для шифрования или расшифрования. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Исключения}
+{\em std\+::invalid\+\_\+argument} & Исключение выбрасывается, если текст содержит недопустимые символы. \\
+\hline
+\end{DoxyExceptions}
+
+
+Объявления и описания членов классов находятся в файлах\+:\begin{DoxyCompactItemize}
+\item 
+mod\+Permutation.\+h\item 
+mod\+Permutation.\+cpp\end{DoxyCompactItemize}
